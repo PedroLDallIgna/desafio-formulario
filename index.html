@@ -9,6 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Nunito:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="shortcut icon" href="img/data_1.svg" type="image/x-icon">
     <title>Sign Up</title>
 </head>
 <body>
@@ -21,37 +22,31 @@
                 <fieldset class="name">
                     <label for="full-name">Full Name *</label>
                     <input type="text" id="full-name" placeholder="Name" required>
-                    <!-- <p class="error">Fullname Invalid</p> -->
                     <p class="error"></p>
                 </fieldset>
                 <fieldset class="email-pwd">
                     <label for="email">Email *</label>
                     <input type="email" id="email" placeholder="foo@bar.com" required>
-                    <!-- <p class="error">Email Invalid</p> -->
                     <p class="error"></p>
                     <label for="password">Password *</label>
                     <input type="password" id="password" required>
-                    <!-- <p class="error">Password Invalid</p> -->
                     <p class="error"></p>
                 </fieldset>
                 <fieldset class="phone-bd">
                     <div class="phone">
                         <label for="phone">Phone</label>
                         <input type="tel" id="phone" placeholder="(83) 00000-0000" size="11" min="11" max="11">
-                        <!-- <p class="error">Phone Invalid</p> -->
                         <p class="error"></p>
                     </div>
                     <div class="birthday">
                         <label for="birthday">Birthday *</label>
                         <input type="date" id="birthday" placeholder="dd/mm/yyyy" required>
-                        <!-- <p class="error">Age Invalid</p> -->
                         <p class="error"></p>
                     </div>
                 </fieldset>
                 <fieldset class="check-btn">
                     <div>
                         <label for="checkbox"><input type="checkbox" id="checkbox" checked required> I accept the terms and privacy</label>
-                        <!-- <p class="error">You must accept the terms</p> -->
                         <p class="error"></p>
                     </div>
                     <button class="register-btn" onclick="registerClick()">Register</button>
