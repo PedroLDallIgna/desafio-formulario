@@ -22,26 +22,30 @@
                 <fieldset class="name">
                     <label for="full-name">Full Name *</label>
                     <input type="text" id="full-name" placeholder="Name" required>
-                    <p class="error"></p>
+                    <span class="error"></span>
                 </fieldset>
                 <fieldset class="email-pwd">
-                    <label for="email">Email *</label>
-                    <input type="email" id="email" placeholder="foo@bar.com" required>
-                    <p class="error"></p>
-                    <label for="password">Password *</label>
-                    <input type="password" id="password" required>
-                    <p class="error"></p>
+                    <div class="email">
+                        <label for="email">Email *</label>
+                        <input type="email" id="email" placeholder="foo@bar.com" required>
+                        <span class="error"></span>
+                    </div>
+                    <div class="password">
+                        <label for="password">Password *</label>
+                        <input type="password" id="password" required>
+                        <span class="error"></span>
+                    </div>
                 </fieldset>
                 <fieldset class="phone-bd">
                     <div class="phone">
                         <label for="phone">Phone</label>
                         <input type="tel" id="phone" placeholder="(83) 00000-0000" size="11" min="11" max="11">
-                        <p class="error"></p>
+                        <span class="error"></span>
                     </div>
                     <div class="birthday">
                         <label for="birthday">Birthday *</label>
                         <input type="date" id="birthday" placeholder="dd/mm/yyyy" required>
-                        <p class="error"></p>
+                        <span class="error"></span>
                     </div>
                 </fieldset>
                 <fieldset class="check-btn">
@@ -50,40 +54,20 @@
                             <input type="checkbox" id="checkbox" checked required>
                             <span class="checkmark"></span>
                         </label>
-                        <p class="error"></p>
+                        <span class="error"></span>
                     </div>
-                    <button class="register-btn" onclick="registerClick()">Register</button>
+                    <button class="register-btn">Register</button>
                 </fieldset>
             </form>
             <div class="success">
-                <img src="img/data_1.svg" alt="">
-                <h1>Success!</h1>
-                <button class="back-btn" onclick="backClick()">Go Back!</button>
+                <button class="back-btn">Go Back!</button>
             </div>
         </div>
         
     </main>
     
-    <script>
-        const success = document.querySelector('.success');
-        const inputs = document.querySelectorAll('input');
-
-        const registerClick = (event) => {
-            let count = 0;
-            inputs.forEach(i => {
-                if (i.value != "" || i.checked) {
-                    count++;
-                }
-            });
-            console.log(count);
-            if (count >= 5) {
-                success.style.zIndex = 2;
-            }
-        };
-
-        const backClick = (event) => {
-            success.style.zIndex = -1;
-        };
-    </script>
+    <script type="module" src="js/patterns.js"></script>
+    <script type="module" src="js/Validator.js"></script>
+    <script type="module" src="js/script.js"></script>
 </body>
 </html>
