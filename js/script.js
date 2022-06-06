@@ -8,6 +8,28 @@ const success = document.querySelector('.success');
 const back = document.querySelector('.back-btn');
 const inputs = document.querySelectorAll('input');
 
+function saveInfo() {
+    inputs.forEach(input => {
+        if (input.type != 'checkbox') {
+            localStorage.setItem(input.id, input.value);
+        } else {
+            localStorage.setItem(input.id, input.checked);
+        }
+    });
+}
+
+function loadInfo() {
+    inputs.forEach(input => {
+        if (localStorage[input.id]) {
+            if (input.type != 'checkbox') {
+                input.value = localStorage[input.id];
+            } else {
+                input.checked = JSON.parse(localStorage.getItem(input.id));
+            }
+        }
+    });
+}
+
 const error_messages = {
     "full-name": "Fullname Invalid",
     email: "Email Invalid",
@@ -40,14 +62,17 @@ const backClick = (event) => {
     title.textContent = "Internal Sign Up";
 
     inputs.forEach(element => {
-        if (element.type != 'checbox') {
-            element.value = "";
+        if (element.type != 'checkbox') {
             document.querySelector(`#${element.id} ~ .error`).textContent = "";
         } else {
             document.querySelector(`#last-error`) = "";
         }
     })
+
+    loadInfo();
 };
 
 register.addEventListener('click', registerClick);
 back.addEventListener('click', backClick);
+document.onchange = saveInfo;
+loadInfo();
