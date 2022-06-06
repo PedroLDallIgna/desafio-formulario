@@ -7,6 +7,7 @@ const register = document.querySelector('.register-btn');
 const success = document.querySelector('.success');
 const back = document.querySelector('.back-btn');
 const inputs = document.querySelectorAll('input');
+const loader = document.querySelector('.loader');
 
 function saveInfo() {
     inputs.forEach(input => {
@@ -51,8 +52,13 @@ const registerClick = (event) => {
     });
     if (count >= 5) {
         form.style.display = 'none';
-        success.style.display = 'flex';
-        title.textContent = "Success!";
+        loader.style.display = 'block';
+        title.textContent = "";
+        setTimeout(() => {
+            success.style.display = 'flex';
+            title.textContent = "Success!";
+            loader.style.display = 'none';
+        }, ((Math.random() * (4 - 1)) + 1) * 1000);
     }
 };
 
@@ -65,9 +71,9 @@ const backClick = (event) => {
         if (element.type != 'checkbox') {
             document.querySelector(`#${element.id} ~ .error`).textContent = "";
         } else {
-            document.querySelector(`#last-error`) = "";
+            document.querySelector(`#last-error`).textContent = "";
         }
-    })
+    });
 
     loadInfo();
 };

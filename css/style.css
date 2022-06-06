@@ -229,6 +229,25 @@
     }
 }
 
+.loader {
+    display: block;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    border-style: solid;
+    border-width: 10px;
+    border-color: #cacaca;
+    border-top-color: #0DBDBD;
+    animation: spin 1s linear infinite;
+    display: none;
+    margin: 0 auto;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
 .success {
     display: none;
     justify-content: center;
